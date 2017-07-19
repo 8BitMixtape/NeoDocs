@@ -5,7 +5,7 @@
   "plugins": ["-sharing", "edit-link", "youtube"],
   "pluginsConfig": {
     "edit-link": {
-      "base": "https://github.com/8BitMixtape/NeoDocs/tree/source/src",
+      "base": "https://github.com/8BitMixtape/NeoDocs/tree/master/src",
       "label": "EDIT"
     }
   },

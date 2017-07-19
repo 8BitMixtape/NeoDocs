@@ -12,7 +12,7 @@ script:
 - node_modules/.bin/gh-pages-travis
 env:
   global:
-  - DEPLOY_BRANCH="source"
+  - DEPLOY_BRANCH="master"
   - SOURCE_DIR="_book"
   - TARGET_BRANCH="gh-pages"
   - SSH_KEY="id_rsa"
@@ -20,7 +20,7 @@ env:
   - GIT_EMAIL="deploy@travis-ci.org"
 branches:
   only:
-  - source
+  - master
   - auto
 notifications:
   email: false
