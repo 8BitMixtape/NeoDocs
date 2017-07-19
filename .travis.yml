@@ -9,7 +9,7 @@ install:
 - npm install
 script:
 - npm run docs:build
-- npm run docs:publish
+- node_modules/.bin/gh-pages-travis
 env:
   global:
   - DEPLOY_BRANCH="source"
