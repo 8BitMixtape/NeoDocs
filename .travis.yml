@@ -1,29 +1,30 @@
 sudo: required
 language: node_js
 node_js:
-  - "6.9.1"
+- 6.9.1
 cache:
   directories:
-    - node_modules # NPM packages
+  - node_modules
 install:
-  - npm install
-  - sudo pip install awscli
+- npm install
+- sudo pip install awscli
 script:
-  - npm run docs:build
-  - docs:publish
-
+- npm run docs:build
+- docs:publish
 env:
-    global:
-        - DEPLOY_BRANCH="source"
-        - SOURCE_DIR="_book"
-        - TARGET_BRANCH="gh-pages"
-        - SSH_KEY="id_rsa"
-        - GIT_NAME="travis"
-        - GIT_EMAIL="deploy@travis-ci.org"
-
+  global:
+  - DEPLOY_BRANCH="source"
+  - SOURCE_DIR="_book"
+  - TARGET_BRANCH="gh-pages"
+  - SSH_KEY="id_rsa"
+  - GIT_NAME="travis"
+  - GIT_EMAIL="deploy@travis-ci.org"
 branches:
   only:
-    - source
-    - auto
+  - source
+  - auto
 notifications:
   email: false
+before_install:
+- openssl aes-256-cbc -K $encrypted_6853688af28a_key -iv $encrypted_6853688af28a_iv
+  -in id_rsa.enc -out id_rsa -d
