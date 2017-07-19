@@ -2,7 +2,7 @@
   "root": "src",
   "title": "8BitMixtape-Neo",
   "language": "en",
-  "plugins": ["-sharing", "edit-link"],
+  "plugins": ["-sharing", "edit-link", "youtube"],
   "pluginsConfig": {
     "edit-link": {
       "base": "https://github.com/8BitMixtape/NeoDocs/tree/source/src",
