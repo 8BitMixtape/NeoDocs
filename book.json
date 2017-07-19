@@ -14,5 +14,8 @@
   },
   "variables": {
     "domain": "https://8bitmixtape.github.io"
-  }
+  },
+  "styles": {
+        "website": "styles/website.css"
+    }
 }
