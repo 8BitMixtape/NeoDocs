@@ -64,3 +64,9 @@ If you push a commit to GitHub and Travis runs the script successfully and a new
 **Note** that if you revoke the deploy key in GitHub, then Travis won't be able to push to the repo. You'll need to generate a new one again, encrypt it with the Travis client, and update, commit and publish the `id_rsa.enc` file.
 
 **Also note** that we are copying the `CNAME` file to the `output` folder before publishing because we use a custom domain and for some obscure reason GitHub keeps forgetting it (or resetting it to blank) if the domain is not set in the repository's `gh-pages` branch.
+
+
+# Credit
+
+* <https://github.com/devtools-html/docs>
+* <https://github.com/rusoto/rusoto.github.io>
