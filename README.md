@@ -1,6 +1,6 @@
 # 8bitmixtape.github.io/NeoDocs
 
-GitBook documentation for the [8BitMixtape-Neo](https://github.com/8bitmixtape/8BitMixtape-Neo) project.
+GitBook documentation for the [8Bit-Mixtape-Neo](https://github.com/8BitMixtape/8Bit-Mixtape-NEO) project.
 
 # Publishing
 
