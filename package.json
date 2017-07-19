@@ -1,7 +1,7 @@
 {
-  "name": "rusoto.github.io",
+  "name": "8BitMixtape-Neo Documentation",
   "version": "1.0.0",
-  "description": "Rusoto GitBook documentation",
+  "description": "8BitMixtape-Neo Documentation",
   "main": "index.js",
   "dependencies": {
     "gitbook-cli": "^2.3.0"
@@ -14,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rusoto/rusoto.github.io.git"
+    "url": "git+https://github.com/8BitMixtape/NeoDocs.git"
   },
-  "author": "Rusoto Project Developers (https://github.com/rusoto)",
+  "author": "Budi Prakosa (https://github.com/badgeek)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rusoto/rusoto.github.io/issues"
+    "url": "https://github.com/badgeek"
   },
-  "homepage": "https://github.com/rusoto/rusoto.github.io#readme"
+  "homepage": "https://github.com/badgeek"
 }
