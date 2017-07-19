@@ -1,0 +1,348 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Usage & Example · 8BitMixtape-Neo</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="supported-aws-services.html" />
+    
+    
+    <link rel="prev" href="help.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="help.html">
+            
+                <a href="help.html">
+            
+                    
+                    Help
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="usage-and-example.html">
+            
+                <a href="usage-and-example.html">
+            
+                    
+                    Usage & Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="supported-aws-services.html">
+            
+                <a href="supported-aws-services.html">
+            
+                    
+                    Supported AWS Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="debugging.html">
+            
+                <a href="debugging.html">
+            
+                    
+                    Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="performance.html">
+            
+                <a href="performance.html">
+            
+                    
+                    Performance
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Usage & Example</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="usage--example">Usage &amp; Example</h1>
+<p>Rusoto provides a crate for each AWS service it supports, containing a client
+and all of the associated types for that service. A full list of these services
+can be found on the <a href="supported-aws-services.html">Supported AWS Services</a> page.</p>
+<p>It also provides a core crate called <code>rusoto_core</code>, containing all shared
+functionality across services, such as the list of regions, signed request senders,
+and credential loading.</p>
+<p>Consult the rustdoc documentatation by running <code>cargo doc</code> or visiting the online
+<a href="https://rusoto.github.io/rusoto/rusoto/" target="_blank">API documentation</a> for the latest crates.io release.</p>
+<p>An example of using Rusoto&apos;s DynamoDB API to list the names of all the
+tables in a database:</p>
+<p>Cargo.toml:</p>
+<pre><code class="lang-toml"><span class="hljs-section">[package]</span>
+<span class="hljs-attr">name</span> = <span class="hljs-string">&quot;my-crate&quot;</span>
+<span class="hljs-attr">version</span> = <span class="hljs-string">&quot;0.1.0&quot;</span>
+<span class="hljs-attr">authors</span> = [<span class="hljs-string">&quot;My Name &lt;my@email.com&gt;&quot;</span>]
+<span class="hljs-section">
+[dependencies]</span>
+<span class="hljs-attr">rusoto_core</span> = <span class="hljs-string">&quot;0.25.0&quot;</span>
+<span class="hljs-attr">rusoto_dynamodb</span> = <span class="hljs-string">&quot;0.25.0&quot;</span>
+</code></pre>
+<p>Rust code:</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">extern</span> <span class="hljs-keyword">crate</span> rusoto_core;
+<span class="hljs-keyword">extern</span> <span class="hljs-keyword">crate</span> rusoto_dynamodb;
+
+<span class="hljs-keyword">use</span> std::default::<span class="hljs-built_in">Default</span>;
+
+<span class="hljs-keyword">use</span> rusoto_core::{default_tls_client, DefaultCredentialsProvider, Region};
+<span class="hljs-keyword">use</span> rusoto_dynamodb::{DynamoDb, DynamoDbClient, ListTablesInput};
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+  <span class="hljs-keyword">let</span> credentials = DefaultCredentialsProvider::new().unwrap();
+  <span class="hljs-keyword">let</span> client = DynamoDbClient::new(default_tls_client().unwrap(), credentials, Region::UsEast1);
+  <span class="hljs-keyword">let</span> list_tables_input: ListTablesInput = <span class="hljs-built_in">Default</span>::default();
+
+  <span class="hljs-keyword">match</span> client.list_tables(&amp;list_tables_input) {
+    <span class="hljs-literal">Ok</span>(output) =&gt; {
+      <span class="hljs-keyword">match</span> output.table_names {
+        <span class="hljs-literal">Some</span>(table_name_list) =&gt; {
+          <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Tables in database:&quot;</span>);
+
+          <span class="hljs-keyword">for</span> table_name <span class="hljs-keyword">in</span> table_name_list {
+            <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;{}&quot;</span>, table_name);
+          }
+        }
+        <span class="hljs-literal">None</span> =&gt; <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;No tables in database!&quot;</span>),
+      }
+    }
+    <span class="hljs-literal">Err</span>(error) =&gt; {
+      <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Error: {:?}&quot;</span>, error);
+    }
+  }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="help.html" class="navigation navigation-prev " aria-label="Previous page: Help">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="supported-aws-services.html" class="navigation navigation-next " aria-label="Next page: Supported AWS Services">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Usage & Example","level":"1.3","depth":1,"next":{"title":"Supported AWS Services","level":"1.4","depth":1,"path":"supported-aws-services.md","ref":"supported-aws-services.md","articles":[]},"previous":{"title":"Help","level":"1.2","depth":1,"path":"help.md","ref":"help.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","edit-link"],"root":"src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"EDIT","base":"https://github.com/8BitMixtape/NeoDocs/tree/source/src"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"domain":"https://8bitmixtape.github.io"},"title":"8BitMixtape-Neo","language":"en","gitbook":"*"},"file":{"path":"usage-and-example.md","mtime":"2017-07-19T14:46:57.608Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-19T14:47:42.979Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
