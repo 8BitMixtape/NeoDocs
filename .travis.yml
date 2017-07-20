@@ -9,6 +9,7 @@ install:
 - npm install
 script:
 - npm run docs:build
+- npm run docs:buildarchive
 - node_modules/.bin/gh-pages-travis
 env:
   global:
