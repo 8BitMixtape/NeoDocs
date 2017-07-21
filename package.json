@@ -6,7 +6,7 @@
   "dependencies": {
     "gh-pages-travis": "^1.0.4",
     "gitbook-cli": "^2.3.0",
-    "gitbook-plugin-audio_image": "git+http://git@github.com/badgeek/gitbook-plugin-audio_image.git"
+    "gitbook-plugin-audio_image": "git+https://github.com/badgeek/gitbook-plugin-audio_image.git"
   },
   "devDependencies": {
     "gh-pages-travis": "^1.0.4"
