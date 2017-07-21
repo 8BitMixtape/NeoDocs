@@ -4,8 +4,9 @@
   "description": "8BitMixtape-Neo Documentation",
   "main": "index.js",
   "dependencies": {
+    "gh-pages-travis": "^1.0.4",
     "gitbook-cli": "^2.3.0",
-    "gh-pages-travis": "^1.0.4"
+    "gitbook-plugin-audio_image": "git+https://github.com/badgeek/gitbook-plugin-audio_image.git"
   },
   "devDependencies": {
     "gh-pages-travis": "^1.0.4"
@@ -15,7 +16,6 @@
     "docs:watch": "npm run docs:prepare && gitbook serve",
     "docs:build": "npm run docs:prepare && rm -rf _book && gitbook build",
     "docs:buildarchive": "zip -r book.zip _book/* ; mv book.zip _book/"
-    
   },
   "repository": {
     "type": "git",
