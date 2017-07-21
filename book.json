@@ -1,5 +1,4 @@
 {
-  "root": "src",
   "title": "8BitMixtape-Neo",
   "language": "en",
   "plugins": ["-sharing", "edit-link", "youtube"],
