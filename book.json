@@ -1,7 +1,7 @@
 {
   "title": "8BitMixtape-Neo",
   "language": "en",
-  "plugins": ["-sharing", "edit-link", "youtube", "audio_image@git+git@github.com:badgeek/gitbook-plugin-audio_image.git"],
+  "plugins": ["-sharing", "edit-link", "youtube", "audio_image@git+https://github.com/badgeek/gitbook-plugin-audio_image.git"],
   "pluginsConfig": {
     "edit-link": {
       "base": "https://github.com/8BitMixtape/NeoDocs/tree/master/src",
