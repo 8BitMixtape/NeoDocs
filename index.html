@@ -137,10 +137,68 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="neodocs">NeoDocs</h1>
-<p>This is a Gitbook Template with Travis automated publish to gh-pages branch</p>
-<p><img src="src/img/multimedia.svg" alt=""></p>
-<p>Download <a href="book.zip">Zip Archive</a></p>
+                                <h1 id="8bitmixtapegithubioneodocs">8bitmixtape.github.io/NeoDocs</h1>
+<p>GitBook documentation for the <a href="https://github.com/8BitMixtape/8Bit-Mixtape-NEO" target="_blank">8Bit-Mixtape-Neo</a> project.</p>
+<h1 id="publishing">Publishing</h1>
+<p>Any changes made to the documentation will automatically get published to <a href="https://8bitmixtape.github.io/NeoDocs" target="_blank">8bitmixtape.github.io/NeoDocs</a> 
+via Travis CI once the changes are merged into the <code>source</code> branch.</p>
+<h1 id="requirements">Requirements</h1>
+<ul>
+<li>npm</li>
+</ul>
+<h1 id="preparation">Preparation</h1>
+<p>First, install GitBook&apos;s CLI with the following commands:</p>
+<ol>
+<li><code>npm install</code></li>
+<li><code>npm run docs:prepare</code></li>
+</ol>
+<h1 id="development">Development</h1>
+<p>A local development server can be started with <code>npm run docs:watch</code>. This server
+will watch for local changes and reflect them in the build directory. The
+development server also hosts the website at <code>localhost:4000</code>.</p>
+<p>Alternatively, a static site can be built by running <code>npm run docs:build</code>.</p>
+<h1 id="branch-explanation">Branch Explanation</h1>
+<p>This repo has a slightly unconventional branching setup.  This is leftover from when 
+it was hosted on GitHub Pages:</p>
+<blockquote>
+<p>Most GitHub Pages-based repos tend to use <code>master</code> for the source, and <code>gh-pages</code> for the rendered
+website. Because this repo is intended to host an organization webpage, then per
+<a href="https://help.github.com/articles/user-organization-and-project-pages/" target="_blank">GitHub&apos;s requirements</a>
+the rendered website MUST appear on the <code>master</code> branch. Since the <code>master</code>
+branch can no longer be used to hold the source, a separate branch must be made
+for that, which in this case is called <code>source</code>.</p>
+</blockquote>
+<h2 id="how-was-this-set-up">How was this set up?</h2>
+<ul>
+<li>Clone repo</li>
+<li>Run <code>npm install</code></li>
+<li>Go to <strong>Repository settings</strong>, make sure <em>GitHub pages</em> are enabled, and select the <code>gh-pages</code> branch</li>
+<li>You should be able to access your repo using the address displayed by GitHub (something like <code>[yourusername].github.io/[repositoryname]</code>)</li>
+<li>Enable this repository in Travis, from <a href="https://travis-ci.org/profile" target="_blank">your Travis dashboard</a>. If you don&apos;t have one, you&apos;ll have to create an account there. If you do, you might need to <em>Sync account</em>, so the repository shows up in the list. Then flick the switch on!</li>
+<li>Generate and set up deploy keys for the repository (run these commands when inside the repo folder):<ul>
+<li><code>ssh-keygen -f id_rsa -t rsa -C &quot;your_email@example.com&quot;</code> (when asked, leave the passphrase empty).</li>
+<li>Add the contents of <code>id_rsa.pub</code> as a deploy key for your Github repository: in <code>https://github.com/&lt;your name&gt;/&lt;your repo&gt;/settings/keys</code> - make sure to allow &apos;write&apos; access or Travis won&apos;t be able to push</li>
+<li>Install Travis CLI client: <code>gem install travis</code></li>
+<li>Log into the CLI and encrypt the private key you generated, <code>id_rsa</code>:<ul>
+<li><code>travis login</code></li>
+<li><code>travis encrypt-file id_rsa --add</code> (will add the decrypt command to recreate <code>id_rsa</code> in the current folder as a <code>before_install</code> script in <code>.travis.yml</code>)</li>
+</ul>
+</li>
+<li>Delete <code>id_rsa</code> and <code>id_rsa.pub</code>: <code>rm id_rsa id_rsa.pub</code></li>
+<li>Add <code>id_rsa.enc</code> to git and commit: <code>git add id_rsa.enc; git commit -m &apos;add encrypted key&apos;</code></li>
+</ul>
+</li>
+<li>Make sure the values in the <code>env</code> section in <code>.travis.yml</code> are correct, update where necessary</li>
+</ul>
+<p>That should be it!</p>
+<p>If you push a commit to GitHub and Travis runs the script successfully and a new version is published on the <code>gh-pages</code> branch, looks like you&apos;re in a good position to enable Travis&apos; <code>Cron</code> from the project settings in Travis. And then the process will be run automatically for you.</p>
+<p><strong>Note</strong> that if you revoke the deploy key in GitHub, then Travis won&apos;t be able to push to the repo. You&apos;ll need to generate a new one again, encrypt it with the Travis client, and update, commit and publish the <code>id_rsa.enc</code> file.</p>
+<p><strong>Also note</strong> that we are copying the <code>CNAME</code> file to the <code>output</code> folder before publishing because we use a custom domain and for some obscure reason GitHub keeps forgetting it (or resetting it to blank) if the domain is not set in the repository&apos;s <code>gh-pages</code> branch.</p>
+<h1 id="credit">Credit</h1>
+<ul>
+<li><a href="https://github.com/devtools-html/docs" target="_blank">https://github.com/devtools-html/docs</a></li>
+<li><a href="https://github.com/rusoto/rusoto.github.io" target="_blank">https://github.com/rusoto/rusoto.github.io</a></li>
+</ul>
 
                                 
                                 </section>
@@ -176,7 +234,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Overview","level":"1.1","depth":1,"dir":"ltr"},"config":{"plugins":["-sharing","edit-link","youtube"],"root":"src","styles":{"website":"styles/website.css"},"pluginsConfig":{"edit-link":{"label":"EDIT","base":"https://github.com/8BitMixtape/NeoDocs/tree/master/src"},"youtube":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"domain":"https://8bitmixtape.github.io"},"title":"8BitMixtape-Neo","language":"en","gitbook":"*"},"file":{"path":"README.md","mtime":"2017-07-21T14:15:23.638Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-21T14:16:31.733Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Overview","level":"1.1","depth":1,"dir":"ltr"},"config":{"plugins":["-sharing","edit-link","youtube"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"edit-link":{"label":"EDIT","base":"https://github.com/8BitMixtape/NeoDocs/tree/master/src"},"youtube":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"domain":"https://8bitmixtape.github.io"},"title":"8BitMixtape-Neo","language":"en","gitbook":"*"},"file":{"path":"README.md","mtime":"2017-07-21T14:21:38.977Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-21T14:22:26.154Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
